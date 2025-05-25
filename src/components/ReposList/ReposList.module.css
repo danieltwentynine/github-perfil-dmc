@@ -25,3 +25,12 @@
     padding: 8px;
     text-decoration: none;
 }
+
+.carregando {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-size: 1.5rem;
+    color: var(--corSecundaria);
+}

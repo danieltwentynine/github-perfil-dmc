@@ -16,15 +16,18 @@ const ReposList = ({ nomeUsuario }) => {
                 setRepos(resJson);
             }, 2000);
         })
+        .catch(erro => {
+            console.error('Erro ao buscar repositórios:', erro);
+            setEstaCarregando(false);
+        })
     }, [nomeUsuario]);
 
     return (
         <div className="container">
             {estaCarregando ? (
-                <h1>Carregando...</h1>
+                <h1 className={styles.carregando}>Carregando...</h1>
             ) : (
             <ul className={styles.list}>
-                <li><h2>Repositorios</h2></li>
                 {repos.map(({id, name, language, html_url}) =>
                     <li key={id} className={styles.listItem}>
                         <div className={styles.itemName}>
